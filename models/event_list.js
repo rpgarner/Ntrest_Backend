@@ -10,15 +10,39 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Comment.belongsTo(models.User, {
+        as: 'creator',
+        foreignKey: 'userId'
+      }),
+      Post.hasMany(models.Event, {
+        foreignKey: "event_listId",
+      });
     }
   }
   Event_List.init({
-    trip: DataTypes.STRING,
-    when: DataTypes.STRING
+    trip: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
+    when: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }, 
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      field: "userId",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      references: {
+        model: "users",
+        Key: "id",
+      },
+    }, 
   }, {
     sequelize,
     modelName: 'Event_List',
+    tableName: 'event_lists',
   });
   return Event_List;
 };

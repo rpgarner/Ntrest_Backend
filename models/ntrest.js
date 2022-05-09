@@ -10,18 +10,50 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Post.belongsTo(models.User, {
+        foreignKey: "userId",
+      }),
+        Post.hasMany(models.Event, {
+          foreignKey: "postId",
+        });
     }
   }
   Ntrest.init({
-    category: DataTypes.STRING,
-    name: DataTypes.STRING,
-    ntrest_img: DataTypes.STRING,
-    difficulty: DataTypes.STRING,
-    description: DataTypes.STRING
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
+    ntrest_img: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
+    difficulty: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      field: "userId",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      references: {
+        model: "users",
+        Key: "id",
+      },
+    },
   }, {
     sequelize,
     modelName: 'Ntrest',
+    tableName: 'ntrests'
   });
   return Ntrest;
 };

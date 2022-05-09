@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
-// const AppRouter = require("./routes/AppRouter");
+const AppRouter = require("./routes/AppRouter");
 
 //////////////variables////////
 const PORT = process.env.PORT || 3000;
@@ -19,6 +19,6 @@ app.use(bodyParser.json());
 
 ////////////////////Routes/////////////////////
 app.get("/", (req, res) => res.json({ message: "Server Works" }));
-// app.use("/api", AppRouter);
+app.use("/api", AppRouter);
 /////////////////Express server listen to port //////////////
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`));

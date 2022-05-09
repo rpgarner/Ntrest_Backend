@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  event.init({
+  Event.init({
     title: {
       type: DataTypes.STRING,
       allowNull: false,

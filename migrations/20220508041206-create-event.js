@@ -62,17 +62,6 @@ module.exports = {
           Key: "id",
         },
       },
-      event_listId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: "event_listId",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        references: {
-          model: "event_lists",
-          Key: "id",
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

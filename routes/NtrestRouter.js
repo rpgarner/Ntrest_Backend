@@ -1,21 +1,20 @@
 const Router = require("express").Router();
-// const controllers = require("../controllers/PostController");
+const controllers = require("../controllers/NtrestController");
 // const middleware = require('../middleware')
 
-// Router.get("/recent", controllers.GetRecentPosts);
-// Router.get("/:ntrestId", controllers.GetPostDetails);
-// Router.post(
-//     "/:user_id",
-//     middleware.stripToken,
-//     middleware.verifyToken, 
-//     controllers.CreatePost);
-// Router.put("/:ntrest_id", 
-//     middleware.stripToken,
-//     middleware.verifyToken, 
-//     controllers.UpdatePost);
-// Router.delete("/:ntrest_id",
-//     middleware.stripToken,
-//     middleware.verifyToken, 
-//     controllers.DeletePost);
+Router.get("/ntrest", controllers.GetAllNtrests);
+Router.get("/:ntrestId", controllers.GetNtrestDetails);
+Router.post("/:ntrest_id", controllers.CreateNtrest);
+    // middleware.stripToken,
+    // middleware.verifyToken, 
+    // controllers.CreateNtrest);
+Router.put("/:ntrest_id",  controllers.UpdateNtrest);
+    // middleware.stripToken,
+    // middleware.verifyToken, 
+    // controllers.UpdateNtrest);
+Router.delete("/:ntrest_id", controllers.DeleteNtrest);
+    // middleware.stripToken,
+    // middleware.verifyToken, 
+    // controllers.DeleteNtrest);
 
 module.exports = Router;

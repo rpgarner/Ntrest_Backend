@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('event_Lists', {
+    await queryInterface.createTable('event_lists', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -27,6 +27,17 @@ module.exports = {
           Key: "id",
         },
       }, 
+      eventId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        field: "eventId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+        references: {
+          model: "events",
+          Key: "id",
+        },
+      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -40,6 +51,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('event_Lists');
+    await queryInterface.dropTable('event_lists');
   }
 };

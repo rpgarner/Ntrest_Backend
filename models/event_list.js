@@ -10,12 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Comment.belongsTo(models.User, {
+      Event_List.belongsTo(models.User, {
         as: 'creator',
         foreignKey: 'userId'
       }),
-      Post.hasMany(models.Event, {
-        foreignKey: "event_listId",
+      Event_List.belongsTo(models.Event, {
+        as: "events",
+        foreignKey: "eventId",
       });
     }
   }

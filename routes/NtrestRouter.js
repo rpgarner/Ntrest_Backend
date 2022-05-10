@@ -4,7 +4,7 @@ const controllers = require("../controllers/NtrestController");
 
 Router.get("/ntrest", controllers.GetAllNtrests);
 Router.get("/:ntrestId", controllers.GetNtrestDetails);
-Router.post("/:ntrest_id", controllers.CreateNtrest);
+Router.post("/:user_id", controllers.CreateNtrest);
     // middleware.stripToken,
     // middleware.verifyToken, 
     // controllers.CreateNtrest);

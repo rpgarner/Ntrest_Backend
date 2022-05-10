@@ -1,6 +1,6 @@
-const Router = require('express').Router()
-// // const controller = require('../controllers/UserController')
-// // const middleware = require('../middleware')
+const Router = require("express").Router();
+const controllers = require("../controllers/Event_listController");
 
+Router.get("/recent", controllers.getAllEvent_Lists);
 
-module.exports = Router
+module.exports = Router;

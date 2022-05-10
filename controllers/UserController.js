@@ -31,17 +31,15 @@ const Login = async (req, res) => {
 
 const Register = async (req, res) => {
   try {
-    const { email, password, firstName, lastName, userName, about, picture } =
+    const { email, password, name, userName, profile_img } =
       req.body;
     let passwordDigest = await middleware.hashPassword(password);
     const user = await User.create({
       email,
       passwordDigest,
-      firstName,
-      lastName,
+      name,
       userName,
-      about,
-      picture,
+      profile_img,
     });
     res.send(user);
   } catch (error) {

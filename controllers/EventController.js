@@ -1,5 +1,5 @@
 /////////////////////imports//////////////////
-const { Event, Ntrest, User } = require("../models");
+const { Event, Ntrest } = require("../models");
 
 ////////////////////controller variables//////////////////
 
@@ -16,10 +16,10 @@ const getAllEvents = async (req, res) => {
 
 const GetEventDetails = async (req, res) => {
   try {
-    const ntrestId = parseInt(req.params.ntrest_id);
+    const eventId = parseInt(req.params.eventid);
     const EventDetails = await Event.findOne({
-      where: { ntrestId: ntrestId },
-      include: [{ model: Ntrest }],
+      where: { eventId: eventId },
+      include: [{ model: Event }],
     });
     res.send(EventDetails);
   } catch (error) {

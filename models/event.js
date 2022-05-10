@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },  
     cost: {
-      type: DataTypes.INTEGEER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0,
       validate: {
@@ -82,17 +82,17 @@ module.exports = (sequelize, DataTypes) => {
         Key: "id",
       },
     },
-    event_listId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      field: "event_listId",
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
-      references: {
-        model: "event_lists",
-        Key: "id",
-      },
-    },
+    // event_listId: {
+    //   allowNull: false,
+    //   type: DataTypes.INTEGER,
+    //   field: "event_listId",
+    //   onDelete: "CASCADE",
+    //   onUpdate: "CASCADE",
+    //   references: {
+    //     model: "event_lists",
+    //     Key: "id",
+    //   },
+    // },
   }, {
     sequelize,
     modelName: 'Event',

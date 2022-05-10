@@ -3,9 +3,10 @@ const controllers = require("../controllers/EventController");
 // const middleware = require('../middleware')
 
 Router.get("/recent", controllers.getAllEvents);
-Router.get("/:eventId", controllers.GetEventDetails);
+Router.get("/ntrest/:ntrest_id", controllers.GetAlleventsByNtrestPk)
+Router.get("/:eventid", controllers.GetEventDetails);
 Router.post(
-    "/:user_id",  controllers.newEvent);
+    "/:user_id/:ntrest_id",  controllers.newEvent);
 //     // middleware.stripToken,
 //     // middleware.verifyToken, 
 //     // controllers.CreatePost);

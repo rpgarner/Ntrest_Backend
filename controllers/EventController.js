@@ -16,11 +16,8 @@ const getAllEvents = async (req, res) => {
 
 const GetEventDetails = async (req, res) => {
   try {
-    const eventId = parseInt(req.params.eventid);
-    const EventDetails = await Event.findOne({
-      where: { eventId: eventId },
-      include: [{ model: Event }],
-    });
+    
+    const EventDetails = await Event.findByPk(req.params.eventid);
     res.send(EventDetails);
   } catch (error) {
     throw error;

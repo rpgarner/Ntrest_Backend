@@ -22,3 +22,4 @@ app.get("/", (req, res) => res.json({ message: "Server Works" }));
 app.use("/api", AppRouter);
 /////////////////Express server listen to port //////////////
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`));
+

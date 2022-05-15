@@ -28,7 +28,7 @@ module.exports = {
         },
       }, 
       eventId: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         field: "eventId",
         onDelete: "CASCADE",

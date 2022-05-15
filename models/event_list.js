@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Event_List.belongsTo(models.User, {
-        as: 'creator',
+        // as: 'creator',
         foreignKey: 'userId'
       }),
       Event_List.belongsTo(models.Event, {
-        as: "events",
+        // as: "events",
         foreignKey: "eventId",
       });
     }
@@ -37,6 +37,17 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       references: {
         model: "users",
+        Key: "id",
+      },
+    }, 
+    eventId: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+      field: "eventId",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      references: {
+        model: "events",
         Key: "id",
       },
     }, 
